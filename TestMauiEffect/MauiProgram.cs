@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using TestMauiEffect.Controls;
 
 namespace TestMauiEffect;
 
@@ -13,7 +14,15 @@ public static class MauiProgram
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-			});
+			})
+            .ConfigureMauiHandlers(handlers =>
+            {
+#if ANDROID
+                handlers.AddHandler(typeof(ExtendedEntry), typeof(TestMauiEffect.Platforms.Android.Renderers.ExtendedEntryRenderer));
+#elif IOS || MACCATALYST
+				handlers.AddHandler(typeof(ExtendedEntry), typeof(TestMauiEffect.Platforms.iOS.Renderers.ExtendedEntryRenderer));
+#endif
+            });
 
 #if DEBUG
 		builder.Logging.AddDebug();
