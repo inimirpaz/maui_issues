@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Microsoft.Maui.Controls.Compatibility.Hosting;
 using TestMauiEffect.Controls;
 
 namespace TestMauiEffect;
@@ -15,6 +16,7 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			})
+			.UseMauiCompatibility()
             .ConfigureMauiHandlers(handlers =>
             {
 #if ANDROID
