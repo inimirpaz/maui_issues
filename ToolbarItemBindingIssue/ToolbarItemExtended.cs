@@ -6,10 +6,10 @@
 
         public ToolbarItemExtended() : base()
         {
-            Task.Run(async () => {
-                await Task.Delay(50);
-                OnIsVisibleChanged(this, false, IsVisible);
-            });
+            //Task.Run(async () => {
+            //    await Task.Delay(50);
+            //    OnIsVisibleChanged(this, false, IsVisible);
+            //});
         }
 
         public bool IsVisible
@@ -43,7 +43,9 @@
                 }
                 else if (!(bool)newvalue && items.Contains(item))
                 {
+                    var parent = item.Parent;
                     items.Remove(item);
+                    item.Parent = parent;
                 }
             }
         }

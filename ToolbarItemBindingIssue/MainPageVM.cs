@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
+using Helpers;
 
 namespace ToolbarItemBindingIssue;
 
@@ -8,19 +10,32 @@ public class MainPageVM : INotifyPropertyChanged
     private bool _isVisible = true;
     public bool IsVisible { get => _isVisible; set { _isVisible = value; OnPropertyChanged(); } }
 
+    public ICommand MyCommand { get; private set; }
+
     public MainPageVM()
     {
+        MyCommand = new Command(async (obj) =>
+        {
+            IsVisible = false;
+            System.Diagnostics.Debug.WriteLine("CLICKED", "TEST");
+            await Task.Delay(2000);
+            IsVisible = true;
+        }, (obj) => IsVisible);
+
+        //MyCommand = new AsyncCommand(async () =>
+        //{
+        //    IsVisible = false;
+        //    await Task.Delay(2000);
+        //    IsVisible = true;
+        //}, (obj) => IsVisible);
     }
 
-#pragma warning disable CS8612 // Nullability of reference types in type doesn't match implicitly implemented member.
-    public event PropertyChangedEventHandler PropertyChanged;
-
+    public event PropertyChangedEventHandler? PropertyChanged;
     protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
     {
-        PropertyChangedEventHandler changed = PropertyChanged;
+        PropertyChangedEventHandler? changed = PropertyChanged;
         if (changed == null)
             return;
         changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
-#pragma warning restore CS8612 // Nullability of reference types in type doesn't match implicitly implemented member.
 }

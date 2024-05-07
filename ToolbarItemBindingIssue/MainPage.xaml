@@ -11,13 +11,13 @@
     </ContentPage.BindingContext>
 
     <ContentPage.ToolbarItems>
-        <local:ToolbarItemExtended IsVisible="{Binding IsVisible, Source={x:Reference ThisMainPage}}">
+        <!--<local:ToolbarItemExtended IsVisible="{Binding IsVisible, Source={x:Reference ThisMainPage}}" Command="{Binding MyCommand}">
             <local:ToolbarItemExtended.IconImageSource>
                 <FontImageSource FontFamily="MaterialIcons" Glyph="&#xe838;" Color="Blue" />
             </local:ToolbarItemExtended.IconImageSource>
-        </local:ToolbarItemExtended>
+        </local:ToolbarItemExtended>-->
 
-        <local:ToolbarItemExtended IsVisible="{Binding IsVisible}">
+        <local:ToolbarItemExtended IsVisible="{Binding IsVisible}" Command="{Binding MyCommand}">
             <local:ToolbarItemExtended.IconImageSource>
                 <FontImageSource FontFamily="MaterialIcons" Glyph="&#xe838;" Color="Red" />
             </local:ToolbarItemExtended.IconImageSource>
