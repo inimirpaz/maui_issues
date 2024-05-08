@@ -7,27 +7,19 @@ namespace ToolbarItemBindingIssue;
 
 public class MainPageVM : INotifyPropertyChanged
 {
-    private bool _isVisible = true;
+    private bool _isVisible = false;
     public bool IsVisible { get => _isVisible; set { _isVisible = value; OnPropertyChanged(); } }
 
-    public ICommand MyCommand { get; private set; }
+    public ICommand GridCommand { get; private set; }
 
     public MainPageVM()
     {
-        MyCommand = new Command(async (obj) =>
+        GridCommand = new AsyncCommand(async () =>
         {
-            IsVisible = false;
-            System.Diagnostics.Debug.WriteLine("CLICKED", "TEST");
-            await Task.Delay(2000);
             IsVisible = true;
-        }, (obj) => IsVisible);
-
-        //MyCommand = new AsyncCommand(async () =>
-        //{
-        //    IsVisible = false;
-        //    await Task.Delay(2000);
-        //    IsVisible = true;
-        //}, (obj) => IsVisible);
+            await Task.Delay(3000);
+            IsVisible = false;
+        });
     }
 
     public event PropertyChangedEventHandler? PropertyChanged;

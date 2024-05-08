@@ -10,28 +10,27 @@
         <local:MainPageVM />
     </ContentPage.BindingContext>
 
-    <ContentPage.ToolbarItems>
-        <!--<local:ToolbarItemExtended IsVisible="{Binding IsVisible, Source={x:Reference ThisMainPage}}" Command="{Binding MyCommand}">
-            <local:ToolbarItemExtended.IconImageSource>
-                <FontImageSource FontFamily="MaterialIcons" Glyph="&#xe838;" Color="Blue" />
-            </local:ToolbarItemExtended.IconImageSource>
-        </local:ToolbarItemExtended>-->
-
-        <local:ToolbarItemExtended IsVisible="{Binding IsVisible}" Command="{Binding MyCommand}">
-            <local:ToolbarItemExtended.IconImageSource>
-                <FontImageSource FontFamily="MaterialIcons" Glyph="&#xe838;" Color="Red" />
-            </local:ToolbarItemExtended.IconImageSource>
-        </local:ToolbarItemExtended>
-    </ContentPage.ToolbarItems>
-
     <ScrollView>
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
-            <Button
-                Text="Toggle MenuItem" 
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Fill" />
+            <Label TextColor="Black">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="IsVisible: " />
+                        <Span Text="{Binding IsVisible}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <Grid>
+                <BoxView WidthRequest="100" HeightRequest="100" BackgroundColor="Red" />
+                <BoxView WidthRequest="100" HeightRequest="100" BackgroundColor="Blue" IsVisible="{Binding IsVisible}" />
+
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GridCommand}" />
+                </Grid.GestureRecognizers>
+            </Grid>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
