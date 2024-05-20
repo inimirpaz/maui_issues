@@ -23,14 +23,7 @@
                 </Label.FormattedText>
             </Label>
 
-            <Grid>
-                <BoxView WidthRequest="100" HeightRequest="100" BackgroundColor="Red" />
-                <BoxView WidthRequest="100" HeightRequest="100" BackgroundColor="Blue" IsVisible="{Binding IsVisible}" />
-
-                <Grid.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding GridCommand}" />
-                </Grid.GestureRecognizers>
-            </Grid>
+            <SearchBar Placeholder="Search..." />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
