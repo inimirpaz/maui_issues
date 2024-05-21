@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ToolbarItemBindingIssue.MainPage"
              xmlns:local="clr-namespace:ToolbarItemBindingIssue"
+             xmlns:plugin="clr-namespace:Plugin.Maui.Calendar.Controls;assembly=Plugin.Maui.Calendar"
              x:Name="ThisMainPage"
              Title="Main Page">
 
@@ -10,28 +11,22 @@
         <local:MainPageVM />
     </ContentPage.BindingContext>
 
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
-            <Label TextColor="Black">
-                <Label.FormattedText>
-                    <FormattedString>
-                        <Span Text="IsVisible: " />
-                        <Span Text="{Binding IsVisible}" />
-                    </FormattedString>
-                </Label.FormattedText>
-            </Label>
-
-            <Grid>
-                <BoxView WidthRequest="100" HeightRequest="100" BackgroundColor="Red" />
-                <BoxView WidthRequest="100" HeightRequest="100" BackgroundColor="Blue" IsVisible="{Binding IsVisible}" />
-
-                <Grid.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding GridCommand}" />
-                </Grid.GestureRecognizers>
-            </Grid>
-        </VerticalStackLayout>
-    </ScrollView>
+    <plugin:Calendar VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Events="{Binding MyEvents, Source={x:Reference ThisMainPage}}">
+        <plugin:Calendar.EventTemplate>
+            <DataTemplate>
+                <StackLayout
+                            Padding="15,0,0,0">
+                    <Label
+                                Text="{Binding Name}"
+                                FontAttributes="Bold"
+                                FontSize="Medium" />
+                    <Label
+                                Text="{Binding Description}"
+                                FontSize="Small"
+                                LineBreakMode="WordWrap" />
+                </StackLayout>
+            </DataTemplate>
+        </plugin:Calendar.EventTemplate>
+    </plugin:Calendar>
 </ContentPage>
 
