@@ -11,7 +11,7 @@
         <local:MainPageVM />
     </ContentPage.BindingContext>
 
-    <plugin:Calendar VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Events="{Binding MyEvents, Source={x:Reference ThisMainPage}}">
+    <plugin:Calendar Events="{Binding MyEvents}">
         <plugin:Calendar.EventTemplate>
             <DataTemplate>
                 <StackLayout
