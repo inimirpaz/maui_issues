@@ -4,12 +4,17 @@
              xmlns:local="clr-namespace:ToolbarItemBindingIssue"
              x:Class="ToolbarItemBindingIssue.App">
     <Application.Resources>
-        <ResourceDictionary>
+        <!--<ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
+        </ResourceDictionary>-->
+
+        <OnPlatform x:Key="MaterialFontFamily" x:TypeArguments="x:String">
+            <On Platform="iOS" Value="Material Design Icons" />
+            <On Platform="Android" Value="materialdesignicons-webfont.ttf#Material Design Icons" />
+        </OnPlatform>
     </Application.Resources>
 </Application>
 

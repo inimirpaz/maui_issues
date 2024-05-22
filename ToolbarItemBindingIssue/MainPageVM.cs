@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using Helpers;
@@ -11,6 +12,13 @@ public class MainPageVM : INotifyPropertyChanged
     public bool IsVisible { get => _isVisible; set { _isVisible = value; OnPropertyChanged(); } }
 
     public ICommand GridCommand { get; private set; }
+
+    public ObservableCollection<MyModel> Items { get; private set; } = new()
+    {
+        new(){ Title ="Title #1", Subtitle= "Subtitle" },
+        new(){ Title ="Title #2", Subtitle= "Subtitle" },
+        new(){ Title ="Title #3", Subtitle= "Subtitle" }
+    };
 
     public MainPageVM()
     {
@@ -29,5 +37,11 @@ public class MainPageVM : INotifyPropertyChanged
         if (changed == null)
             return;
         changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
+    public class MyModel
+    {
+        public string Title { get; set; }
+        public string Subtitle { get; set; }
     }
 }
