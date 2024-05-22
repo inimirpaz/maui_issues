@@ -20,27 +20,23 @@
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid x:Name="grid" BackgroundColor="Red" Padding="5,5,5,5" RowSpacing="0" ColumnSpacing="0" ColumnDefinitions="40, *, *, *" RowDefinitions="*,*">
-                        <RelativeLayout Margin="5,0,0,0" Grid.RowSpan="2" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Start">
-                            <Image HorizontalOptions="Start"
-                                               VerticalOptions="Center">
-                                <Image.Source>
-                                    <FontImageSource Glyph="&#xF3EC;"
-                                                     Color="Black"
-                                                     Size="24"
-                                                     FontFamily="{StaticResource MaterialFontFamily}"/>
-                                </Image.Source>
-                            </Image>
-                        </RelativeLayout>
+                    <SwipeView Grid.Row="0" Grid.Column="0" BackgroundColor="Blue">
+                        <SwipeView.LeftItems>
+                            <SwipeItems>
+                                <SwipeItemView>
+                                    <Label Margin="20,0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="&#xF970;" FontFamily="{StaticResource MaterialFontFamily}" FontSize="22" />
+                                </SwipeItemView>
+                                <SwipeItemView>
+                                    <Label Margin="20,0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="&#xFB64;" FontFamily="{StaticResource MaterialFontFamily}" FontSize="22" />
+                                </SwipeItemView>
+                            </SwipeItems>
+                        </SwipeView.LeftItems>
 
-                        <Label x:Name="lbl1" BackgroundColor="Green" Grid.Row="0" Grid.Column="1" Text="{Binding Title}" LineBreakMode="TailTruncation" FontSize="Medium" />
-                        <Label BackgroundColor="Green" Grid.Row="0" Grid.Column="2" Text="{Binding RowDefinitions[0].Height, Source={x:Reference grid}}" LineBreakMode="TailTruncation" FontSize="Medium" />
-                        <Label BackgroundColor="Green" Grid.Row="0" Grid.Column="3" Text="{Binding FontSize, Source={x:Reference lbl1}}" LineBreakMode="TailTruncation" FontSize="Medium" />
-
-                        <Label x:Name="lbl2" BackgroundColor="Blue" Grid.Row="1" Grid.Column="1" Text="{Binding Subtitle}" LineBreakMode="TailTruncation" FontSize="Small" />
-                        <Label BackgroundColor="Blue" Grid.Row="1" Grid.Column="2" Text="{Binding RowDefinitions[1].Height, Source={x:Reference grid}}" LineBreakMode="TailTruncation" FontSize="Small" />
-                        <Label BackgroundColor="Blue" Grid.Row="1" Grid.Column="3" Text="{Binding FontSize, Source={x:Reference lbl2}}" LineBreakMode="TailTruncation" FontSize="Small" />
-                    </Grid>
+                        <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*" RowSpacing="0" ColumnSpacing="2">
+                            <Label VerticalTextAlignment="End" Grid.Row="0" Grid.Column="0" Text="ITEM TITLE" LineBreakMode="TailTruncation" FontSize="Medium" />
+                            <Label VerticalOptions="Start" Grid.Row="1" Grid.Column="0" Text="Subtitle" />
+                        </Grid>
+                    </SwipeView>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
