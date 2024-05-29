@@ -1,9 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ToolbarItemBindingIssue.MainPage"
              xmlns:local="clr-namespace:ToolbarItemBindingIssue"
-             xmlns:compat="clr-namespace:Microsoft.Maui.Controls.Compatibility;assembly=Microsoft.Maui.Controls"
+             x:Class="ToolbarItemBindingIssue.MainPage"
              x:Name="ThisMainPage"
              Title="Main Page">
 
@@ -14,19 +13,29 @@
     <StackLayout Spacing="6">
         <Label Text=".NET MAUI" HorizontalTextAlignment="Center" FontSize="Large" />
 
-        <RefreshView IsEnabled="False">
-            <CollectionView Margin="0,10,0,0" ItemsSource="{Binding Items}" SelectionMode="None">
+        <RefreshView>
+            <CollectionView Margin="0,10,0,0" ItemsSource="{Binding Items}" SelectionMode="Single" SelectionChangedCommand="{Binding SelectedCommand, Source={x:Reference ThisMainPage}}" x:Name="collView">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout VerticalItemSpacing="5" Orientation="Vertical" />
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, 50" RowSpacing="0" ColumnSpacing="2">
-                            <Label VerticalTextAlignment="End" Grid.Row="0" Grid.Column="0" Text="ITEM TITLE" LineBreakMode="TailTruncation" FontSize="Medium" />
-                            <Label VerticalOptions="Start" Grid.Row="1" Grid.Column="0" Text="Subtitle" />
+                        <SwipeView>
+                            <SwipeView.LeftItems>
+                                <SwipeItems>
+                                    <SwipeItemView>
+                                        <BoxView BackgroundColor="Red" />
+                                    </SwipeItemView>
+                                </SwipeItems>
+                            </SwipeView.LeftItems>
 
-                            <Button Grid.Column="1" FontFamily="{StaticResource MaterialFontFamily}" Text="&#xF1C0;" />
-                        </Grid>
+                            <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, 50" RowSpacing="0" ColumnSpacing="2">
+                                <Label VerticalTextAlignment="End" Grid.Row="0" Grid.Column="0" Text="ITEM TITLE" LineBreakMode="TailTruncation" FontSize="Medium" />
+                                <Label VerticalOptions="Start" Grid.Row="1" Grid.Column="0" Text="Subtitle" />
+
+                                <Button Grid.Column="1" FontFamily="{StaticResource MaterialFontFamily}" Text="&#xF1C0;" />
+                            </Grid>
+                        </SwipeView>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
