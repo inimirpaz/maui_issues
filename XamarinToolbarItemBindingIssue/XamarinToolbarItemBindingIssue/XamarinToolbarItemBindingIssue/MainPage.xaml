@@ -14,31 +14,22 @@
     <StackLayout Spacing="6" Margin="0,56,0,0">
         <Label Text="XAMARIN" HorizontalTextAlignment="Center" FontSize="Large" />
 
-        <CollectionView Margin="0,10,0,0" ItemsSource="{Binding Items}" SelectionMode="None">
-            <CollectionView.ItemsLayout>
-                <GridItemsLayout VerticalItemSpacing="5" Orientation="Vertical" />
-            </CollectionView.ItemsLayout>
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <SwipeView Grid.Row="0" Grid.Column="0" BackgroundColor="Blue">
-                        <SwipeView.LeftItems>
-                            <SwipeItems>
-                                <SwipeItemView>
-                                    <Label Margin="20,0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="&#xF970;" FontFamily="{StaticResource MaterialFontFamily}" FontSize="22" />
-                                </SwipeItemView>
-                                <SwipeItemView>
-                                    <Label Margin="20,0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="&#xFB64;" FontFamily="{StaticResource MaterialFontFamily}" FontSize="22" />
-                                </SwipeItemView>
-                            </SwipeItems>
-                        </SwipeView.LeftItems>
-
-                        <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*" RowSpacing="0" ColumnSpacing="2">
+        <RefreshView IsEnabled="False">
+            <CollectionView Margin="0,10,0,0" ItemsSource="{Binding Items}" SelectionMode="None">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout VerticalItemSpacing="5" Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, 50" RowSpacing="0" ColumnSpacing="2">
                             <Label VerticalTextAlignment="End" Grid.Row="0" Grid.Column="0" Text="ITEM TITLE" LineBreakMode="TailTruncation" FontSize="Medium" />
                             <Label VerticalOptions="Start" Grid.Row="1" Grid.Column="0" Text="Subtitle" />
+
+                            <Button Grid.Column="1" FontFamily="{StaticResource MaterialFontFamily}" Text="&#xF1C0;" />
                         </Grid>
-                    </SwipeView>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
     </StackLayout>
 </ContentPage>
