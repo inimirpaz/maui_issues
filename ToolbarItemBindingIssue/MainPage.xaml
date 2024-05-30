@@ -11,9 +11,9 @@
         <local:MainPageVM />
     </ContentPage.BindingContext>
 
-    <StackLayout Spacing="6">
+    <StackLayout Spacing="6" Margin="0,56,0,0">
         <Label TextColor="White" Text=".NET MAUI" HorizontalTextAlignment="Center" FontSize="Large" />
 
-        <ImageButton HorizontalOptions="Center" WidthRequest="100" HeightRequest="100" BorderColor="White" BackgroundColor="DarkOrange" BorderWidth="5" CornerRadius="50" />
+        <ImageButton HorizontalOptions="Center" WidthRequest="100" HeightRequest="100" BorderColor="White" BackgroundColor="DarkOrange" BorderWidth="1" CornerRadius="50" />
     </StackLayout>
 </ContentPage>
