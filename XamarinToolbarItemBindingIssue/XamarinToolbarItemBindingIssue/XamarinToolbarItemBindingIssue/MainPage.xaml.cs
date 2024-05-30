@@ -9,19 +9,7 @@ namespace XamarinToolbarItemBindingIssue
 
         public MainPage()
         {
-            SelectedCommand = new Command((c) =>
-            {
-                if (collView.SelectedItem != null)
-                {
-                    if (collView.SelectedItem is MainPageVM.MyModel item)
-                    {
-                        System.Diagnostics.Debug.WriteLine(item.Title, "INFO");
-                        collView.SelectedItem = null;
-                    }
-                }
-            }, s => !IsBusy);
-
-            InitializeComponent();
+           InitializeComponent();
         }
     }
 }
