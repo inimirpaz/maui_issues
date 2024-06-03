@@ -5,9 +5,6 @@ namespace ToolbarItemBindingIssue;
 
 public class MainPageVM : INotifyPropertyChanged
 {
-    private bool _isVisible = true;
-    public bool IsVisible { get => _isVisible; set { _isVisible = value; OnPropertyChanged(); } }
-
     public MainPageVM()
     {
     }
