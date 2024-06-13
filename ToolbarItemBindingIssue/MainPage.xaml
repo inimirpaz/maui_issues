@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="#333333"
              x:Class="ToolbarItemBindingIssue.MainPage"
              xmlns:local="clr-namespace:ToolbarItemBindingIssue"
-             xmlns:plugin="clr-namespace:Plugin.Maui.Calendar.Controls;assembly=Plugin.Maui.Calendar"
+             xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
              x:Name="ThisMainPage"
              Title="Main Page">
 
@@ -11,22 +12,11 @@
         <local:MainPageVM />
     </ContentPage.BindingContext>
 
-    <plugin:Calendar Events="{Binding MyEvents}">
-        <plugin:Calendar.EventTemplate>
-            <DataTemplate>
-                <StackLayout
-                            Padding="15,0,0,0">
-                    <Label
-                                Text="{Binding Name}"
-                                FontAttributes="Bold"
-                                FontSize="Medium" />
-                    <Label
-                                Text="{Binding Description}"
-                                FontSize="Small"
-                                LineBreakMode="WordWrap" />
-                </StackLayout>
-            </DataTemplate>
-        </plugin:Calendar.EventTemplate>
-    </plugin:Calendar>
+    <StackLayout HeightRequest="250">
+        <material:TextField Title="Hello" />
+        <Frame BackgroundColor="Transparent" >
+            <material:TextField Title="Hello" />
+        </Frame>
+    </StackLayout>
 </ContentPage>
 
