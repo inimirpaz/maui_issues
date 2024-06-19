@@ -4,7 +4,6 @@
              BackgroundColor="#333333"
              x:Class="ToolbarItemBindingIssue.MainPage"
              xmlns:local="clr-namespace:ToolbarItemBindingIssue"
-             xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
              x:Name="ThisMainPage"
              Title="Main Page">
 
@@ -12,11 +11,25 @@
         <local:MainPageVM />
     </ContentPage.BindingContext>
 
-    <StackLayout HeightRequest="250">
-        <material:TextField Title="Hello" />
-        <Frame BackgroundColor="Transparent" >
-            <material:TextField Title="Hello" />
-        </Frame>
-    </StackLayout>
+    <CollectionView
+        ItemsSource="{Binding MyGroupedItems}" IsGrouped="True" SelectionMode="None">
+        <CollectionView.GroupHeaderTemplate>
+            <DataTemplate>
+                <Label TextColor="White" HorizontalTextAlignment="Center" Text="{Binding Title}" />
+            </DataTemplate>
+        </CollectionView.GroupHeaderTemplate>
+
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Frame>
+                    <Label Text="{Binding Name}" />
+
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SelectCommand, Source={RelativeSource AncestorType={x:Type local:MainPageVM}}}" CommandParameter="{Binding .}" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
 </ContentPage>
 
