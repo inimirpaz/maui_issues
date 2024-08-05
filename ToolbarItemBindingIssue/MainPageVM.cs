@@ -1,17 +1,28 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace ToolbarItemBindingIssue;
 
-public class MainPageVM : INotifyPropertyChanged
+public class MainPageVM : ABaseVM
 {
-    private bool _isVisible = false;
-    public bool IsVisible { get => _isVisible; set { _isVisible = value; OnPropertyChanged(); } }
+    public ObservableCollection<string> Strings { get; private set; } = new() {
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+    };
 
     public MainPageVM()
     {
     }
+}
 
+public abstract class ABaseVM : INotifyPropertyChanged
+{
     public event PropertyChangedEventHandler? PropertyChanged;
     protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
     {
