@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 25.0.1706.11
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolbarItemBindingIssue", "ToolbarItemBindingIssue\ToolbarItemBindingIssue.csproj", "{016BD08A-2B21-486F-BE32-657F7284444A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "maui_issues", "maui_issues\maui_issues.csproj", "{016BD08A-2B21-486F-BE32-657F7284444A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
