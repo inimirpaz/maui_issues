@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace ToolbarItemBindingIssue;
+namespace maui_issues;
 
 public class MainPageVM : ABaseVM
 {

@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace ToolbarItemBindingIssue;
+namespace maui_issues;
 
 [Application]
 public class MainApplication : MauiApplication

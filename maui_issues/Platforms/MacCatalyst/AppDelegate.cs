@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace ToolbarItemBindingIssue;
+namespace maui_issues;
 
 [Register("AppDelegate")]
 public class AppDelegate : MauiUIApplicationDelegate

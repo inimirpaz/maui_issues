@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace ToolbarItemBindingIssue;
+namespace maui_issues;
 
 public class Program
 {

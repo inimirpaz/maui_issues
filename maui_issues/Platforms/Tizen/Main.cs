@@ -2,7 +2,7 @@
 using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 
-namespace ToolbarItemBindingIssue;
+namespace maui_issues;
 
 class Program : MauiApplication
 {

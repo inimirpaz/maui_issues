@@ -1,4 +1,4 @@
-﻿namespace ToolbarItemBindingIssue;
+﻿namespace maui_issues;
 
 public partial class App : Application
 {

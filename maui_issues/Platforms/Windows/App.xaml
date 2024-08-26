@@ -1,9 +1,9 @@
 ﻿<maui:MauiWinUIApplication
-    x:Class="ToolbarItemBindingIssue.WinUI.App"
+    x:Class="maui_issues.WinUI.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:maui="using:Microsoft.Maui"
-    xmlns:local="using:ToolbarItemBindingIssue.WinUI">
+    xmlns:local="using:maui_issues.WinUI">
 
 </maui:MauiWinUIApplication>
 
