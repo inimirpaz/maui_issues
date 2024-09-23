@@ -4,7 +4,7 @@
              x:Class="maui_issues.MainPage"
              x:Name="ThisMainPage"
              xmlns:local="clr-namespace:maui_issues"
-             BackgroundColor="#333333"
+             BackgroundColor="#666666"
              Title="Main Page">
 
     <ContentPage.BindingContext>
@@ -12,6 +12,7 @@
     </ContentPage.BindingContext>
 
     <StackLayout>
+        <Button BorderWidth="1" BackgroundColor="Transparent" TextColor="White" Text="Hello World" Margin="10" />
     </StackLayout>
 </ContentPage>
 
