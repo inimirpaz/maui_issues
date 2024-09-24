@@ -3,15 +3,39 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="maui_issues.MainPage"
              x:Name="ThisMainPage"
-             xmlns:local="clr-namespace:maui_issues"
+             xmlns:local="clr-namespace:maui_issues" xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
              BackgroundColor="#333333"
+             HideSoftInputOnTapped="True"
              Title="Main Page">
 
     <ContentPage.BindingContext>
         <local:MainPageVM />
     </ContentPage.BindingContext>
 
-    <StackLayout>
+    <StackLayout Margin="20" Spacing="10">
+        <material:TextField
+            BorderColor="DarkGoldenrod"
+            AccentColor="Yellow"
+            InputBackgroundColor="Black"
+            Title="Username"
+            Keyboard="Default"
+            AutomationId="Login" />
+
+        <material:TextField
+            BorderColor="DarkGoldenrod"
+            AccentColor="Yellow"
+            InputBackgroundColor="Black"
+            Title="Some other field"
+            Keyboard="Default" />
+
+        <material:TextField
+            BorderColor="DarkGoldenrod"
+            AccentColor="Yellow"
+            InputBackgroundColor="Black"
+            Title="Password"
+            Keyboard="Default"
+            IsPassword="True"
+            AutomationId="Password" />
     </StackLayout>
 </ContentPage>
 
