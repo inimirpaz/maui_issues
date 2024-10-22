@@ -12,6 +12,10 @@
     </ContentPage.BindingContext>
 
     <StackLayout>
+        <Grid RowDefinitions="*, *" ColumnDefinitions="*, Auto" RowSpacing="6">
+            <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="Black" />
+            <BoxView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="Black" />
+        </Grid>
     </StackLayout>
 </ContentPage>
 
