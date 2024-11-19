@@ -11,7 +11,8 @@
         <local:MainPageVM />
     </ContentPage.BindingContext>
 
-    <StackLayout>
+    <StackLayout Padding="10">
+        <Editor BackgroundColor="White" HeightRequest="200" />
     </StackLayout>
 </ContentPage>
 
